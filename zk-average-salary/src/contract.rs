@@ -57,8 +57,6 @@ fn initialize(ctx: ContractContext, zk_state: ZkState<SecretVarType>) -> Contrac
 }
 
 /// Adds another salary variable
-///
-/// The ZkInputDef encodes that the variable should have size [`BITLENGTH_OF_SECRET_SALARY_VARIABLES`].
 #[zk_on_secret_input(shortname = 0x40)]
 fn add_salary(
     context: ContractContext,
