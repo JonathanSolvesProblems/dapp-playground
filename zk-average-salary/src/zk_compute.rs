@@ -2,6 +2,7 @@ use create_type_spec_derive::CreateTypeSpec;
 use pbc_contract_common::zk::ZkInputDef;
 use pbc_zk::*;
 
+#[allow(unused)]
 const SALARY_VARIABLE_KIND: u8 = 0u8;
 
 #[derive(Clone, SecretBinary, CreateTypeSpec)]
