@@ -1,0 +1,43 @@
+{
+  "id": "1",
+  "price": "379,000",
+  "image": "#",
+  "description": "Perfect for first home buyers",
+  "address": [
+    {
+      "street": "1234, Boul Drive"
+    },
+    {
+      "city": "Donky King"
+    },
+    {
+      "state": "Florida"
+    },
+    {
+      "country": "USA"
+    }
+  ],
+  "features": [
+    {
+      "rooms": 8
+    },
+    {
+      "beedrooms": 2
+    },
+    {
+      "bathrooms": 2
+    },
+    {
+      "netarea": "1085 sqft"
+    },
+    {
+      "yearbuilt": "1978"
+    },
+    {
+      "parking": "Garage (1)"
+    },
+    {
+      "additional": "Private balcony"
+    }
+  ]
+}

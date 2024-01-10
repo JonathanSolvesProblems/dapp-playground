@@ -16,7 +16,6 @@ use pbc_contract_common::zk::{CalculationStatus, SecretVarId, ZkInputDef, ZkStat
 use pbc_zk::Sbi32;
 use read_write_rpc_derive::ReadWriteRPC;
 use read_write_state_derive::ReadWriteState;
-use zk_compute::ZKInput;
 
 /// Secret variable metadata. Unused for this contract, so we use a zero-sized struct to save space.
 #[derive(ReadWriteState, ReadWriteRPC, Debug)]

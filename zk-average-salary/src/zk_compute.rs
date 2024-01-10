@@ -1,5 +1,4 @@
 use create_type_spec_derive::CreateTypeSpec;
-use pbc_contract_common::zk::ZkInputDef;
 use pbc_zk::*;
 
 #[allow(unused)]
@@ -8,11 +7,6 @@ const SALARY_VARIABLE_KIND: u8 = 0u8;
 #[derive(Clone, SecretBinary, CreateTypeSpec)]
 pub struct ZKInput {
     pub salary: Sbi32,
-    /*
-    1 = Male,
-    2 = Female,
-    3 = Other
-    */
     pub gender_choice: Sbi8,
 }
 
