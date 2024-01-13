@@ -57,14 +57,13 @@ pub fn initialize(
 /// The updated petition state reflecting the new signing.
 ///
 #[action(shortname = 0x01)]
-pub fn sign(ctx: ContractContext, state: PetitionState) -> PetitionState {
+pub fn sign(ctx: ContractContext, mut state: PetitionState) -> PetitionState {
     assert!(
         state.allowed_signers.contains(&ctx.sender),
         "This account is not allowed to sign contracts."
     );
-    let mut new_state = state;
-    new_state.signed_by.insert(ctx.sender);
-    new_state
+    state.signed_by.insert(ctx.sender);
+    state
 }
 
 /// Update description of the petition
