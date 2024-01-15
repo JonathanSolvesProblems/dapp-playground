@@ -31,19 +31,19 @@ enum SecretVarType {
 
 #[derive(ReadWriteState, CreateTypeSpec, Clone)]
 pub struct ZkOutput {
-    pub gender_counts: GenderCounts,
-    pub salary_averages: SalaryAverages,
+    pub gender_counts: GenderCountsPublic,
+    pub salary_averages: SalaryAveragesPublic,
 }
 
 #[derive(ReadWriteState, CreateTypeSpec, Clone)]
-pub struct SalaryAverages {
+pub struct SalaryAveragesPublic {
     pub male: i32,
     pub female: i32,
     pub other: i32,
 }
 
 #[derive(ReadWriteState, CreateTypeSpec, Clone)]
-pub struct GenderCounts {
+pub struct GenderCountsPublic {
     pub male: i32,
     pub female: i32,
     pub other: i32,
@@ -58,7 +58,7 @@ struct ContractState {
     /// Address allowed to start computation
     administrator: Address,
     /// Will contain the result (average) when computation is complete
-    average_salary_result: Option<SalaryAverages>,
+    average_salary_result: Option<SalaryAveragesPublic>,
     /// Will contain the number of employees after starting the computation
     num_employees: u32,
 }
@@ -185,7 +185,7 @@ fn open_sum_variable(
     // Opened_variable will give us secret variable
     let result = read_variable_u32_le(&zk_state, &opened_variable.variable_id);
 
-    let averages = SalaryAverages {
+    let averages = SalaryAveragesPublic {
         male: division_ignore_zero(result.salary_averages.male, result.gender_counts.male),
         female: division_ignore_zero(result.salary_averages.female, result.gender_counts.female),
         other: division_ignore_zero(result.salary_averages.other, result.gender_counts.other),
