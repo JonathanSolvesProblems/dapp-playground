@@ -30,7 +30,7 @@ enum SecretVarType {
 }
 
 #[derive(ReadWriteState, CreateTypeSpec, Clone)]
-pub struct ZkOutput {
+pub struct ZkOutputPublic {
     pub gender_counts: GenderCountsPublic,
     pub salary_averages: SalaryAveragesPublic,
 }
@@ -208,10 +208,13 @@ fn division_ignore_zero(nominator: i32, denominator: i32) -> i32 {
     }
 }
 /// Reads a variable's data as a GenderCount
-fn read_variable_u32_le(zk_state: &ZkState<SecretVarType>, variable_id: &SecretVarId) -> ZkOutput {
+fn read_variable_u32_le(
+    zk_state: &ZkState<SecretVarType>,
+    variable_id: &SecretVarId,
+) -> ZkOutputPublic {
     let variable = zk_state.get_variable(*variable_id).unwrap();
     let buffer = variable.data.clone().unwrap();
-    let result = ZkOutput::state_read_from(&mut buffer.as_slice());
+    let result = ZkOutputPublic::state_read_from(&mut buffer.as_slice());
 
     result
 }
